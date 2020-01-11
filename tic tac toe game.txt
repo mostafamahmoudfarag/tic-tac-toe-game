@@ -1,0 +1,221 @@
+#include<iostream>
+#include<iostream>
+#include<iomanip>
+#include<cmath>
+#include<string>
+using namespace std;
+
+
+char arr[9] = { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+int s = 0;
+int d = 0;
+
+void display(int a)
+{
+	system("cls");
+	
+	
+	
+	
+
+		if (s == 0 || s == 2 || s == 4 || s == 6 || s == 8)
+		{
+
+			arr[a - 1] = 'x';
+			s++;
+		}
+		else
+		{
+			arr[a - 1] = 'o';
+
+			s++;
+		}
+	
+
+
+	for (int i = 0; i < 9; i++)
+	{
+
+		cout << arr[i] << "    ";
+		if (i == 2 || i == 5 || i == 8)
+			cout << endl;
+	}
+
+
+}
+bool chek( int e)
+{
+	
+	if (arr[e - 1] == 'x' || arr[e - 1] == 'o')
+		return false;
+	else
+		return true;
+
+
+}
+ bool finish()
+{
+	 if (arr[0] == 'x'&&arr[1] == 'x'&&arr[2] == 'x')
+	 {
+		 return true;
+	 } 
+	 else if (arr[0] == 'x'&&arr[3] == 'x'&&arr[6] == 'x')
+	 {
+		 return true;
+	 }
+	 else if
+		 (arr[3] == 'x'&&arr[4] == 'x'&&arr[5] == 'x')
+	 {
+		 return true;
+	 }
+	 else if
+		 (arr[6] == 'x'&&arr[7] == 'x'&&arr[8] == 'x') 
+	 {
+		 return true;
+	 }
+	 else if
+		 (arr[1] == 'x'&&arr[4] == 'x'&&arr[7] == 'x')
+	 {
+		 return true;
+	 } else if
+		 (arr[2] == 'x'&&arr[5] == 'x'&&arr[8] == 'x')  {
+		 return true;
+	 } 
+	 else if (arr[0] == 'x'&&arr[4] == 'x'&&arr[8] == 'x') 
+	 {
+		 return true;
+	 }
+	 else if (arr[2] == 'x'&&arr[4] == 'x'&&arr[6] == 'x')
+	 {
+		 return true;
+	 }
+	 else
+		 return false;
+
+
+
+
+}
+ bool finish2()
+ {
+
+	 if (arr[0] == 'o'&&arr[1] == 'o'&&arr[2] == 'o')
+	 {
+		 return true;
+	 }
+	 else if (arr[0] == 'o'&&arr[3] == 'o'&&arr[6] == 'o')
+	 {
+		 return true;
+	 }
+	 else if
+		 (arr[3] == 'o'&&arr[4] == 'o'&&arr[5] == 'o')
+	 {
+		 return true;
+	 }
+	 else if
+		 (arr[6] == 'o'&&arr[7] == 'o'&&arr[8] == 'o')
+	 {
+		 return true;
+	 }
+	 else if
+		 (arr[1] == 'o'&&arr[4] == 'o'&&arr[7] == 'o')
+	 {
+		 return true;
+	 }
+	 else if
+		 (arr[2] == 'o'&&arr[5] == 'o'&&arr[8] == 'o')  {
+		 return true;
+	 }
+	 else if (arr[0] == 'o'&&arr[4] == 'o'&&arr[8] == 'o')
+	 {
+		 return true;
+	 }
+	 else if (arr[2] == 'o'&&arr[4] == 'o'&&arr[6] == 'o')
+	 {
+		 return true;
+	 }
+	 else
+		 return false;
+
+
+ }
+
+using namespace std;
+
+
+void main()
+{
+
+	system("color 3a");
+	system("color a1");
+	int a, b, y = 0;
+	cout << "enter number do you need to start play\n";
+
+	while (true)
+	{
+
+
+		loop:
+
+
+	mostafa:
+		cout << "player 1 play using x\n";
+		cin >> a;
+
+		if (chek(a) == true)
+		{
+			display(a);
+			if (finish() == true)
+			{
+				cout << "player 1 win\n";
+				
+				goto sad;
+
+			}
+
+			
+		}
+		else
+		{
+			cout << "please enter valid number\n";
+			goto mostafa;
+		}
+		d++;
+	mahmoud:
+		cout << "player 2 play using O\n";
+		cin >> b;
+
+
+		if (chek(b) == true)
+		{
+			display(b);
+			if (finish2() == true)
+			{
+				cout << "player 2 win\n";
+				
+				goto sad;
+			}
+
+		
+		}
+		else
+		{
+			cout << "enter valid number\n";
+			goto mahmoud;
+		}
+
+
+		y++;
+		d++;
+		if (d == 8)
+			goto takak;
+		if (y < 5)goto loop;
+	
+	takak:
+		cout << "t3adol\n";
+		break;
+	sad:
+		break;
+	}
+}
+
